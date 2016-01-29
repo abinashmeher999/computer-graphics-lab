@@ -187,8 +187,6 @@ std::vector<tdp> Get3Dline(tdp start, tdp end, int scale) {
     int ady = std::abs(dy);
     int dz = (int) end.z - start.z;
     int adz = std::abs(dz);
-    int fxy = 2*dy - dx;
-    int fxz = 2*dz - dx;
 
     std::vector<tdp> points_list;
 
@@ -264,6 +262,8 @@ std::vector<tdp> Get3Dline(tdp start, tdp end, int scale) {
     dx = transformed_new_end.x;
     dy = transformed_new_end.y;
     dz = transformed_new_end.z;
+    int fxy = 2*dy - dx;
+    int fxz = 2*dz - dx;
     if (dx >= dy && dx >= dz) {
         while( it_point.x < transformed_new_end.x ) {
             it_point.x += scale;
